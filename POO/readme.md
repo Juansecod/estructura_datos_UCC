@@ -37,7 +37,7 @@ Hacer control de encendido de los vehiculos, para esto al momento de usar el mé
 # **Ejercicio 5**  
 Debes hacer un ejercicio donde por medio de un método, el vehículo de marcha y haga un consumo de combustible a medida que este funcione, cuando llegue a los niveles de combustible definidos en el mensaje anterior, muestre la advertencia y si esta llega a cero, detenga la marcha 
 
-* [Solución (Python)]()
-* [Solución (Dart)]()
-* [Solución (PHP)]()
-* [Solución (Node)]()
+* [Solución (Python)](https://github.com/Juansecod/estructura_datos_UCC/blob/main/POO/Vehiculo.py)
+* [Solución (Dart)](https://github.com/Juansecod/estructura_datos_UCC/blob/main/POO/Vehiculo.dart)
+* [Solución (PHP)](https://github.com/Juansecod/estructura_datos_UCC/blob/main/POO/Vehiculo.php)
+* [Solución (Node)](https://github.com/Juansecod/estructura_datos_UCC/blob/main/POO/Vehiculo.js)
