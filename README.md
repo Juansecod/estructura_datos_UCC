@@ -1,2 +1,2 @@
-# estructura_datos_UCC
-Repositorio destinado para los ejercicios planteados en estructura de datos.
+# Estructura de Datos UCC
+Repositorio destinado para los ejercicios planteados en la asignatura Estructura de Datos.
