@@ -34,7 +34,7 @@ Una variante de la lista enlazada es la lista doblemente enlazada, en la que cad
     ```
 - **`eliminar`:** Elimina el elemento de la lista enlazada
     ```py
-    def eliminar(self, data):
+    def delete(self, data):
       current_node = self.head
       if current_node.data == data:
           self.head = current_node.next
@@ -47,7 +47,7 @@ Una variante de la lista enlazada es la lista doblemente enlazada, en la que cad
     ```
 - **`imprimir_lista`:** Imprime los datos de cada nodo de la lista
     ```py
-    def imprimir(self):
+    def print_list(self):
         current_node = self.head
         while current_node is not None:
             print(current_node.dato)
