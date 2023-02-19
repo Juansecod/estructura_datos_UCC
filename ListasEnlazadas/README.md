@@ -11,16 +11,21 @@ Una variante de la lista enlazada es la lista doblemente enlazada, en la que cad
 ## Metodos en las listas enlazadas
 
 - **`Constructor`:** Creación de la lista enlazada
+
     ```py
     def __init__(self):
         self.head = None
     ```
+
 - **`es_vacio`:** Devuelve un boolean que es True si la lista esta vacia
+
     ```py
     def is_empty(self):
         return self.head is None
     ```
+
 - **`agregar_nodo`:** Agrega un nodo en la ultima posición de la lista
+
     ```py
     def push(self, data):
         current_node = Node(data)
@@ -32,7 +37,9 @@ Una variante de la lista enlazada es la lista doblemente enlazada, en la que cad
             current_node = current_node.next
         current_node.next = node
     ```
+
 - **`eliminar`:** Elimina el elemento de la lista enlazada
+
     ```py
     def delete(self, data):
       current_node = self.head
@@ -45,7 +52,9 @@ Una variante de la lista enlazada es la lista doblemente enlazada, en la que cad
               return
           current_node = current_node.next
     ```
+
 - **`imprimir_lista`:** Imprime los datos de cada nodo de la lista
+
     ```py
     def print_list(self):
         current_node = self.head
@@ -54,9 +63,10 @@ Una variante de la lista enlazada es la lista doblemente enlazada, en la que cad
         current_node = current_node.next
     ```
 
-# Ejercicio
+## Ejercicio
 
 Realiza los siguientes metodos para la clase `ListaEnlazada`:
+
 - [x] **`buscar`:** Busca un dato en los nodos de la lista enlazada que devuelva un booleano, sera False en caso de que no se encuentre en ningun nodo.
 - [x] **`tamaño`:** Devuelve la cantidad de nodos que tiene la lista enlazada
 - [ ] **`ordenar`:** Ordena de manera ascendente los nodos que tiene la lista enlazada
