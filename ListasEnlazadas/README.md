@@ -8,6 +8,18 @@ La principal ventaja de la lista enlazada sobre otras estructuras de datos, como
 
 Una variante de la lista enlazada es la lista doblemente enlazada, en la que cada nodo contiene también una referencia al nodo anterior. Esto permite la eliminación e inserción de elementos en ambas direcciones con la misma eficiencia.
 
+## ¿Que algoritmo de ordenamiento usar en una lista enlazada?
+
+Los algoritmos de ordenamiento que se usan para una lista enlazada son diferentes a los que se usan para un arreglo.
+
+Para una lista enlazada, el algoritmo de ordenamiento más utilizado es el algoritmo de ordenamiento por `selección (Selection Sort)` o el algoritmo de ordenamiento por `inserción (Insertion Sort)`.
+
+El algoritmo de ordenamiento por selección para listas enlazadas funciona de la siguiente manera: se recorre la lista y se busca el elemento más pequeño en la lista, se intercambia con el primer elemento de la lista y se repite el proceso para el resto de la lista, colocando los elementos en su posición correcta.
+
+El algoritmo de ordenamiento por inserción para listas enlazadas también funciona de manera similar a la versión para arreglos: se toma el primer elemento de la lista como una lista ordenada y se va insertando el siguiente elemento en la posición correcta dentro de esa lista ordenada.
+
+Es importante mencionar que ambos algoritmos tienen una complejidad temporal de O(n^2), lo que los hace menos eficientes que los algoritmos de ordenamiento de división y conquista como Quicksort, Mergesort o Heapsort. Sin embargo, en el caso de listas enlazadas, no es tan sencillo aplicar los algoritmos de ordenamiento de división y conquista debido a la forma en que se almacenan los elementos en memoria.
+
 ## Metodos en las listas enlazadas
 
 - **`Constructor`:** Creación de la lista enlazada
@@ -63,11 +75,22 @@ Una variante de la lista enlazada es la lista doblemente enlazada, en la que cad
         current_node = current_node.next
     ```
 
-## Ejercicio
+## Ejercicio 1
 
 Realiza los siguientes metodos para la clase `ListaEnlazada`:
 
 - [x] **`buscar`:** Busca un dato en los nodos de la lista enlazada que devuelva un booleano, sera False en caso de que no se encuentre en ningun nodo.
 - [x] **`tamaño`:** Devuelve la cantidad de nodos que tiene la lista enlazada
-- [ ] **`ordenar`:** Ordena de manera ascendente los nodos que tiene la lista enlazada
+- [x] **`ordenar`:** Ordena de manera ascendente los nodos que tiene la lista enlazada
 - [ ] **`invertir`:** Invierte el orden de los nodos de la lista enlazada
+
+## Ejercicio 2
+
+- [x] Crear una clase `Animal` con los métodos y atributos básicos. En uno de los atributos, debes indicar la edad y el tipo de animal (Águila, pantera, vaca, ...)
+
+- [x] Crear una `lista enlazada` que permita agregar animales al listado, donde al momento de agregar un nuevo animal a la lista, esta no debe repetirse.
+
+- [x] Para mostrar los animales que contiene la lista enlazada, debes realizarla usando dos métodos
+
+  - [x] Una función recursiva
+  - [x] Un bucle

@@ -61,7 +61,20 @@ class ListaEnlazada:
     
 
   def ordenar(self):
-    pass
+    if self.cabeza is None:
+      return
+    current = self.cabeza
+    while current.next:
+      min_node = current
+      temp = current.next
+      while temp:
+        if min_node.dato > temp.dato:
+            min_node = temp
+        temp = temp.next
+      current.dato, min_node.dato = min_node.dato, current.dato
+      current = current.next
+        
+    
 
   def invertir(self):
     pass
@@ -72,6 +85,9 @@ print("Agregamos datos al nodo")
 lista.agregar_nodo(3)
 lista.agregar_nodo(2)
 lista.agregar_nodo(1)
+lista.agregar_nodo(6)
+lista.agregar_nodo(5)
+lista.agregar_nodo(4)
 
 print("\nImprimimos los datos")
 lista.imprimir()
@@ -84,3 +100,6 @@ print("1 esta en la lista:", lista.buscar(1))
 print("2 esta en la lista:", lista.buscar(2))
 print("3 esta en la lista:", lista.buscar(3))
 print("4 esta en la lista:", lista.buscar(4))
+
+lista.ordenar()
+lista.imprimir()
