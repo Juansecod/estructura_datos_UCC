@@ -21,6 +21,17 @@ class Animal:
     def __str__(self):
         return (f"Tipo: {self.tipo}, Edad: {self.edad}")
     
+class Animal:
+    # Atributos
+    edad: int
+    tipo: str
+    
+    def __init__(self, edad, tipo):
+        self.edad, self.tipo = edad, tipo
+        
+    def __str__(self):
+        return (f"Tipo: {self.tipo}, Edad: {self.edad}")
+    
 class Nodo:
     def __init__(self, dato):
         self.dato = dato
@@ -59,7 +70,7 @@ class ListaEnlazada:
             if es_nuevo:
                 nodo_actual.next = nodo
                 
-    def listar_bucle(self):
+    def str_bucle(self):
         if(self.es_vacio()):
             return
         nodo = self.cabeza
@@ -69,14 +80,33 @@ class ListaEnlazada:
             nodo = nodo.next
         return lista
             
-    def listar_recursivo(self, nodo = None):
+    def str_recursivo(self, nodo = None):
         if(self.es_vacio()):
             return
         if nodo == None:
             nodo = self.cabeza
         if nodo.next == None:
             return nodo.dato.__str__()
-        return nodo.dato.__str__() + "\n" + self.listar_recursivo(nodo.next)
+        return nodo.dato.__str__() + "\n" + self.str_recursivo(nodo.next)
+    
+    def mostrar_bucle(self):
+        if(self.es_vacio()):
+            return
+        nodo = self.cabeza
+        lista = ""
+        while nodo is not None:
+            print(nodo.dato.__str__())
+            nodo = nodo.next
+            
+    def mostrar_recursivo(self, nodo = None):
+        if(self.es_vacio()):
+            return
+        if nodo == None:
+            nodo = self.cabeza
+        print(nodo.dato.__str__())
+        if nodo.next == None:
+            return
+        self.mostrar_recursivo(nodo.next)
             
 perro = Animal(10, "Perro")
 gato = Animal(4, "Gato")
@@ -90,11 +120,14 @@ lista_animales.agregar(gato)
 lista_animales.agregar(aguila)
 lista_animales.agregar(vaca)
 
-print("Listar con Bucle:")
-print(lista_animales.listar_bucle())
+print("     Mostar con Bucle:")
+lista_animales.mostrar_bucle()
 print("-"*50)
-print("Listar con Recursion:")
-print(lista_animales.listar_recursivo())
+print("     Mostar con Recursion:")
+lista_animales.mostrar_recursivo()
 
-
-
+print("\n\nString con bucle")
+print(lista_animales.str_bucle())
+print("-"*50)
+print("String con recursividad")
+print(lista_animales.str_recursivo())
