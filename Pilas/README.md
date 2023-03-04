@@ -13,3 +13,11 @@ Las pilas tienen 3 operaciones básicas:
 Además, las pilas también pueden tener un tamaño máximo predefinido o ser dinámicas, lo que significa que su tamaño puede crecer o disminuir según se agregan o eliminan elementos.
 
 Las pilas se utilizan en muchos ámbitos de la programación, como en la gestión de llamadas a funciones, en la implementación de algoritmos de búsqueda y en la evaluación de expresiones matemáticas, entre otros.
+
+Se diferencia de las listas enlazadas ya que cuenta con los metodos apilar y desapilar, siendo push y pop respectivamente.
+
+## Ejercicio
+- Realizar un editor de texto por terminal. 
+- Con base a esta informacion, debes crear un historial para el editor de texto. 
+- Este tendra una capacidad configurable. 
+- Cada vez que se haga la combinacion de teclas ```ctrl + z``` se devuelva
