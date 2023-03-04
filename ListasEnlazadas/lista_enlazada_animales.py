@@ -58,13 +58,13 @@ class ListaEnlazada:
         nodo = Nodo(dato)
         if self.es_vacio():
             self.cabeza = nodo
-        elif self.cabeza.dato == dato:
+        elif self.cabeza.dato.tipo == dato.tipo:
             return
         else:
             nodo_actual = self.cabeza
             es_nuevo = True
             while nodo_actual.next is not None:
-                if nodo_actual.dato == dato:
+                if nodo_actual.dato.tipo == dato.tipo:
                     es_nuevo = False
                 nodo_actual = nodo_actual.next
             if es_nuevo:
@@ -109,13 +109,14 @@ class ListaEnlazada:
         self.mostrar_recursivo(nodo.next)
             
 perro = Animal(10, "Perro")
+perro2 = Animal(12, "Perro")
 gato = Animal(4, "Gato")
 aguila = Animal(4, "Aguila")
 vaca = Animal(4, "Vaca")
 
 lista_animales = ListaEnlazada()
 lista_animales.agregar(perro)
-lista_animales.agregar(perro)
+lista_animales.agregar(perro2)
 lista_animales.agregar(gato)
 lista_animales.agregar(aguila)
 lista_animales.agregar(vaca)
