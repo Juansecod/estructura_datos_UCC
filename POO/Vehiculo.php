@@ -23,7 +23,7 @@ class Vehiculo {
         $this->nivel_combustible -= $consumo_combustible;
         echo "\n {$this->nivel_combustible} \n";
         if ($this->nivel_combustible <= 0) {
-            $this->nivel_combustible = 0s;
+            $this->nivel_combustible = 0;
             echo "No tienes combustible!";
         }elseif (($this->nivel_combustible * 100) / $this->capacidad_maxima < 10) {
             echo "Advertencia, nivel de combustible bajo";
