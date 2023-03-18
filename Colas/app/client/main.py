@@ -2,6 +2,7 @@ from pandas import DataFrame
 import requests
 import threading
 from os import system
+from time import sleep
 
 class Node:
     def __init__(self, value):
@@ -39,25 +40,52 @@ class Queue:
         current = self.first
         while current:
             print(current.value, end=f"\n\n")
+            print("-"*150)
             current = current.next
-        print("-"*100)    
+
+    def size(self):
+        if self.is_empty():
+            return 0
+        current = self.first
+        cont = 0
+        while current:
+            cont += 1
+            current = current.next
+        return cont    
 
 urls = Queue()
 responses = Queue()
 
-def fetch(url):
-    r = requests.get(url)
-    df = DataFrame(r.json())
-    responses.append(df)
-    system("cls")
-    urls.display()
-    responses.display()
+def fetch(condition, url):
+    with condition:
+        try:
+            r = requests.get(url)
+            df = DataFrame(r.json())
+            responses.append(df)
+        except:
+            responses.append({"msg": "Bad Request"})
+        condition.notify()
+
 
 threads = []
-for url in ["http://localhost:8000/productos", "http://localhost:8000/carts", "http://localhost:8000/users", ]:
+condition = threading.Condition()
+
+for url in ["http://localhost:8000/products", "http://localhost:8000/carts", "http://localhost:8000/users", "http://localhost:8000/userss"]:
     urls.append(url)
-    thread = threading.Thread(target=fetch, args=[url])
+    thread = threading.Thread(target=fetch, args=[condition, url])
     threads.append(thread)
 
 for f in threads:
     f.start()
+
+print("waiting...", end="\n")
+with condition:
+    condition.wait_for(lambda : responses.size() == urls.size())
+    print("-"*100)
+    print("Urls".center(100))
+    print("-"*100, end="\n\n")
+    urls.display()
+    print("-"*100)
+    print("Responses".center(100))
+    print("-"*100)
+    responses.display()
