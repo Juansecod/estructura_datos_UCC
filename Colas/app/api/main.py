@@ -1,5 +1,6 @@
 from typing import Union
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 import requests
 import time
 import random
@@ -16,7 +17,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/productos")
+@app.get("/products")
 def read_root():
     aleatorio = random.randint(1, 10)
     time.sleep(aleatorio)
