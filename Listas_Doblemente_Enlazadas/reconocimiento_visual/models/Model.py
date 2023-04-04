@@ -18,7 +18,6 @@ class Model:
         if data_dir is None:
             data_dir = tf.keras.utils.get_file(model_name, origin=dataset_url, untar=True)
         self.data_dir = Path(data_dir)
-        print(self.data_dir)
         
         train_ds = tf.keras.utils.image_dataset_from_directory(
             self.data_dir,
@@ -37,6 +36,7 @@ class Model:
             batch_size=self.BATCH_SIZE)
         
         self.class_names = train_ds.class_names
+        print(self.class_names)
         
         self.num_classes = len(self.class_names)
         

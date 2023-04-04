@@ -1,34 +1,48 @@
-import matplotlib.pyplot as plt
-import numpy as np
-import os
-import PIL
 import tensorflow as tf
+from LinkedList import LinkedList
+from ModelInfo import ModelInfo
 
-from tensorflow import keras
-from keras import layers
-from keras.models import Sequential
+image_url = input("Ingresa el link de la imagen a analizar: ")
+image_path = tf.keras.utils.get_file(origin=image_url)
 
-import pathlib
+responses = LinkedList()
 
-""" Codigo que testea la inteligencia artificial """
-model = tf.keras.models.load_model("./models_saved/flower_photos")
+DEAFULT_PATH = "./models_saved/"
 
-class_names = ["daisy","dandelion","roses","sunflowers","tulips"]
+models_info = [
+    ModelInfo(
+        name="flower",
+        model=tf.keras.models.load_model(DEAFULT_PATH + "flower_photos"),
+        class_names=["daisy", "dandelion", "roses", "sunflowers", "tulips"]
+    ),
+    ModelInfo(
+        name="animal",
+        model=tf.keras.models.load_model(DEAFULT_PATH + "animal_photos"),
+        class_names=["cat", "dog", "wild"]
+    ),
+    ModelInfo(
+        name="face",
+        model=tf.keras.models.load_model(DEAFULT_PATH + "face_photos"),
+        class_names=["female", "male"]
+    ),
+    ModelInfo(
+        name="thing",
+        model=tf.keras.models.load_model(DEAFULT_PATH + "thing_photos"),
+        class_names=["things"]
+    )]
 
 img_height = 180
 img_width = 180
-sunflower_url = "https://i.pinimg.com/736x/39/85/a3/3985a3260a4b32e3b4b48e21b74810da--glamour.jpg"
-sunflower_path = tf.keras.utils.get_file('green_rose', origin=sunflower_url)
-print(sunflower_path)
+
 img = tf.keras.utils.load_img(
-    sunflower_path, target_size=(img_height, img_width)
+    image_path, target_size=(img_height, img_width)
 )
+
 img_array = tf.keras.utils.img_to_array(img)
-img_array = tf.expand_dims(img_array, 0) # Create a batch
+img_array = tf.expand_dims(img_array, 0)
 
-predictions = model.predict(img_array)
-score = tf.nn.softmax(predictions[0])
-
-print(
-    "This image most likely belongs to {} with a {:.2f} percent confidence."
-    .format(class_names[np.argmax(score)], 100 * np.max(score)))
+for model_info in models_info:
+    prediction = model_info.predict(img_array)
+    responses.append(prediction)
+    
+responses.display()
