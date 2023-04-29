@@ -28,14 +28,14 @@ class BinaryTree:
 
     def __print_inorder(self, node):
         if node:
-            self.__print_preorder(node.left)
+            self.__print_inorder(node.left)
             print(node.data, end=", ")
-            self.__print_preorder(node.right)
+            self.__print_inorder(node.right)
 
     def __print_postorder(self, node):
         if node:
-            self.__print_preorder(node.left)
-            self.__print_preorder(node.right)
+            self.__print_postorder(node.left)
+            self.__print_postorder(node.right)
             print(node.data, end=", ")
 
     def insert(self, data):
