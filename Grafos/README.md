@@ -33,3 +33,17 @@ En resumen, el TSP es un problema clásico de optimización combinatoria que con
 > - [networkx](https://networkx.org/documentation/stable/index.html)
 >
 >- [Pyomo](http://www.pyomo.org/)
+
+## Proyecto final
+
+- Se hara uso grafos ponderados
+- Se usara el algoritmo de Dijkstra
+
+> Opciones:
+>
+> - Problema del viajero
+> - Ruta mas optima
+> - Redes sociales
+> - Deteccion de fraudes
+
+Con la libreria `pyomo` validamos el resultado de nuestro algoritmo
