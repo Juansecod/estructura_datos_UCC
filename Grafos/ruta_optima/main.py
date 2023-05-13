@@ -30,7 +30,6 @@ edges = (
 )
 
 G.add_edges_from(edges)
-    
 
 print("""
 Ciudades disponibles:
@@ -58,10 +57,9 @@ while True:
     if end.lower() == "salir":
         break
     
-    
-    result = dijkstra(start, end, G)
-    print(f"La ruta optima para ir de {start} a {end} es: {result[0]}")
-    print(f"El consumo total es de {result[1]}")
+    path, cost = dijkstra(start, end, G)
+    print(f"La ruta optima para ir de {start} a {end} es: {path}")
+    print(f"El consumo total es de {cost}")
 
 print("Finalizando programa...")
 
