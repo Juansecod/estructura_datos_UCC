@@ -21,17 +21,6 @@ class Animal:
     def __str__(self):
         return (f"Tipo: {self.tipo}, Edad: {self.edad}")
     
-class Animal:
-    # Atributos
-    edad: int
-    tipo: str
-    
-    def __init__(self, edad, tipo):
-        self.edad, self.tipo = edad, tipo
-        
-    def __str__(self):
-        return (f"Tipo: {self.tipo}, Edad: {self.edad}")
-    
 class Nodo:
     def __init__(self, dato):
         self.dato = dato
